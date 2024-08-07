@@ -18,6 +18,7 @@ GameScene::~GameScene() {
 	worldTransformBlocks_.clear();
 	delete modelSkydome_;
 	delete debugCamera_;
+	delete mapChipField_;
 }
 	
 
@@ -27,6 +28,7 @@ GameScene::~GameScene() {
 		input_ = Input::GetInstance();
 		audio_ = Audio::GetInstance();
 	    modelSkydome_ = Model::CreateFromOBJ("sphere",true);
+
 		//カメラの生成
 		debugCamera_ = new DebugCamera(WinApp::kWindowWidth, WinApp::kWindowHeight);
 		cameraMarix_ = MatrixMath::MakeAffineMatrix(
@@ -68,6 +70,19 @@ GameScene::~GameScene() {
 
 		skydome_ = new Skydome();
 	    skydome_->Initialize(modelSkydome_, &viewProjection_);
+	    mapChipField_ = new MapChipField;
+	    mapChipField_->LoadMapChipCsv("Resources/blocks.csv");
+	    GenerateBlocks();
+	    uint32_t numBlockVirtical = mapChipField_->GetNumBlockVirtical();
+	    uint32_t numBlockHorizontal = mapChipField_->GetNumBlockHorizontal();
+
+		worldTransformBlocks_.resize(numBlockVirtical);
+	    for (uint32_t i = 0; i < numBlockVirtical; ++i) {
+		    worldTransformBlocks_[i].resize(numBlockHorizontal);
+		}
+		fro() {
+
+		}
 	}
 
 	void GameScene::Update() {
