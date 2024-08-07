@@ -38,7 +38,7 @@ public: // メンバ関数
 	/// 毎フレーム処理
 	/// </summary>
 	void Update();
-	Model* modelSkydome_ = nullptr;
+	
 	/// <summary>
 	/// 描画
 	/// </summary>
@@ -61,5 +61,6 @@ private: // メンバ変数
 	Matrix4x4 cameraMarix_;
 	Model* modelBlock_ = nullptr;
 	std::vector<std::vector<WorldTransform*>> worldTransformBlocks_;
-	Skydome* skydome_;	
+	Skydome* skydome_ = nullptr;	
+	Model* modelSkydome_ = nullptr;
 };

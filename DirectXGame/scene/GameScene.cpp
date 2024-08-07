@@ -18,7 +18,6 @@ GameScene::~GameScene() {
 	worldTransformBlocks_.clear();
 	delete modelSkydome_;
 	delete debugCamera_;
-	delete modelSkydome_;
 }
 	
 
@@ -128,6 +127,7 @@ GameScene::~GameScene() {
 #pragma region 3Dオブジェクト描画
 		// 3Dオブジェクト描画前処理
 		Model::PreDraw(commandList);
+	    skydome_->Draw();
 
 		/// <summary>
 		/// ここに3Dオブジェクトの描画処理を追加できる
