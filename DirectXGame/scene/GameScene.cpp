@@ -16,7 +16,9 @@ GameScene::~GameScene() {
 		}
 	}
 	worldTransformBlocks_.clear();
+	delete modelSkydome_;
 	delete debugCamera_;
+	delete modelSkydome_;
 }
 	
 
@@ -25,7 +27,7 @@ GameScene::~GameScene() {
 		dxCommon_ = DirectXCommon::GetInstance();
 		input_ = Input::GetInstance();
 		audio_ = Audio::GetInstance();
-
+	    modelSkydome_ = Model::CreateFromOBJ("sphere",true);
 		//カメラの生成
 		debugCamera_ = new DebugCamera(WinApp::kWindowWidth, WinApp::kWindowHeight);
 		cameraMarix_ = MatrixMath::MakeAffineMatrix(
@@ -64,6 +66,9 @@ GameScene::~GameScene() {
 
 		viewProjection_.Initialize();
 		modelBlock_ = Model::Create();
+
+		skydome_ = new Skydome();
+	    skydome_->Initialize(modelSkydome_, &viewProjection_);
 	}
 
 	void GameScene::Update() {
