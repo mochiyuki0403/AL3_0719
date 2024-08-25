@@ -1,16 +1,15 @@
-#pragma once
 #include "Vector3.h"
 #include <stdint.h>
 #include <vector>
 
-// “`““I‚È—ñ‹“‚Æ”ä‚×‚Äenum class‚É‚ÍŸ‚Ì—˜“_‚ª‚ ‚è‚Ü‚·B
-// enum class‚Ì—ñ‹“’l‚ÍˆÃ–Ù“I‚É®”Œ^‚É•ÏŠ·‚³‚ê‚¸A
-// –¾¦“I‚ÉŒ^•ÏŠ·‚ğw’è‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-// enum class‚Ìenum’l‚Í‚»‚ÌenumŒ^“à‚ÅˆêˆÓ‚Å‚ ‚èA
-// ‘¼‚ÌƒXƒR[ƒv‚Ì¯•Êq‚Æ‚ÍÕ“Ë‚µ‚Ü‚¹‚ñ
+// ä¼çµ±çš„ãªåˆ—æŒ™ã¨æ¯”ã¹ã¦enum classã«ã¯æ¬¡ã®åˆ©ç‚¹ãŒã‚ã‚Šã¾ã™ã€‚
+// enum classã®åˆ—æŒ™å€¤ã¯æš—é»™çš„ã«æ•´æ•°å‹ã«å¤‰æ›ã•ã‚Œãšã€
+// æ˜ç¤ºçš„ã«å‹å¤‰æ›ã‚’æŒ‡å®šã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+// enum classã®enumå€¤ã¯ãã®enumå‹å†…ã§ä¸€æ„ã§ã‚ã‚Šã€
+// ä»–ã®ã‚¹ã‚³ãƒ¼ãƒ—ã®è­˜åˆ¥å­ã¨ã¯è¡çªã—ã¾ã›ã‚“
 enum class MapChipType {
-	kBlank, // ‹ó”’
-	kBlock, // ƒuƒƒbƒN
+	kBlank, // ç©ºç™½
+	kBlock, // ãƒ–ãƒ­ãƒƒã‚¯
 };
 
 struct MapChipData {
@@ -18,7 +17,7 @@ struct MapChipData {
 };
 
 /// <summary>
-/// ƒ}ƒbƒvƒ`ƒbƒvƒtƒB[ƒ‹ƒh
+/// ãƒãƒƒãƒ—ãƒãƒƒãƒ—ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
 /// </summary>
 class MapChipField {
 public:
@@ -30,10 +29,10 @@ public:
 	uint32_t GetNumBlockHorizontal();
 
 private:
-	// 1ƒuƒƒbƒN‚ÌƒTƒCƒY
+	// 1ãƒ–ãƒ­ãƒƒã‚¯ã®ã‚µã‚¤ã‚º
 	static inline const float kBlockWidth = 2.0f;
 	static inline const float kBlockHeight = 2.0f;
-	// ƒuƒƒbƒN‚ÌŒÂ”
+	// ãƒ–ãƒ­ãƒƒã‚¯ã®å€‹æ•°
 	static inline const uint32_t kNumBlockVirtical = 20;
 	static inline const uint32_t kNumBlockHorizontal = 100;
 

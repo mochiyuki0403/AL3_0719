@@ -20,7 +20,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ゲームウィンドウの作成
 	win = WinApp::GetInstance();
-	win->CreateGameWindow(L"AL3_0202");
+	win->CreateGameWindow(L"GC2D_11_モチダ_ユキヤ_AL3" );
 
 	// DirectX初期化処理
 	dxCommon = DirectXCommon::GetInstance();
