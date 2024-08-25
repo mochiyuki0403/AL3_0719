@@ -53,14 +53,13 @@ GameScene::~GameScene() {
 		}
 
 		//	ブロックの生成
-		for (uint32_t row = 0; row < kNumblockVirtical; row++) {
-			for (uint32_t column = 0; column < kNumBlockHorizonal; column++) {
-				
-					worldTransformBlocks_[row][column] = new WorldTransform();
-					worldTransformBlocks_[row][column]->Initialize();
-					if ((row + column) % 2 == 0) {
-						worldTransformBlocks_[row][column]->translation_.x = kBlockWidth * column;
-						worldTransformBlocks_[row][column]->translation_.y = kBlockHeight * row;
+		for (uint32_t i = 0; i< kNumblockVirtical; i++) {
+			for (uint32_t j = 0; j < kNumBlockHorizonal; j++) {
+					if (mapChipField_->GetMapChipTypeByIndex(j,i)==MapChipType::kBlock){
+				WorldTransform* worldTransform= new WorldTransform();
+				worldTransform->Initialize();
+						worldTransformBlocks_[i][j]->translation_.x = kBlockWidth *j;
+						worldTransformBlocks_[i][j]->translation_.y = kBlockHeight * i;
 					}
 			}
 		}
@@ -79,9 +78,6 @@ GameScene::~GameScene() {
 		worldTransformBlocks_.resize(numBlockVirtical);
 	    for (uint32_t i = 0; i < numBlockVirtical; ++i) {
 		    worldTransformBlocks_[i].resize(numBlockHorizontal);
-		}
-		fro() {
-
 		}
 	}
 
